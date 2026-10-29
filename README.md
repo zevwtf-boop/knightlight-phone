@@ -1,6 +1,6 @@
 # Nook phone viewer · 1.3.0
 
-This static page receives the paired desktop extension's completed chess suggestions. It displays the move, source and destination, score, depth and optional position diagram. It cannot make moves or send engine/settings commands to the desktop.
+This static page receives the paired desktop extension's completed chess suggestions. It displays the move, source and destination, score, depth and automatically visible live board with move arrows. It cannot make moves or send engine/settings commands to the desktop.
 
 Open [Nook Phone](https://zevwtf-boop.github.io/knightlight-phone/) with a pairing link from the desktop extension.
 
@@ -44,3 +44,11 @@ The website is a public application shell. Session keys and game positions must 
 - `vendor/peerjs-LICENSE.txt`: dependency license.
 
 Application source is supplied under the Nook project's GPL-3.0-or-later license. PeerJS retains its upstream license notice.
+
+## Live board and move guidance
+
+The board is visible automatically near the top of the connected viewer. It has vector pieces, source/destination highlights, move arrows, separate castling rook guidance and promotion markers. Flip and View control orientation; Arrows and Labels can be toggled independently. Auto uses the configured player color when the desktop supplies it. Display preferences stay in this phone tab's session storage.
+
+The current board remains visible while calculating, with old arrows cleared. A disabled or changed position clears its guidance; a stale/disconnected connection clears the board. Preview on board shows a prepared branch's conditional future position with amber guidance and a Preview only caption. Back to live board or a new position ends the preview.
+
+`board.js` contains the editable board renderer and original vector piece paths. The single-file build bundles it into index.html, and source.json includes it.
